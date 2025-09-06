@@ -1,0 +1,88 @@
+/* app.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+/* App container full width + margin */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* full screen height */
+  width: calc(100% - 40px); /* left-right margin */
+  margin: 0 auto; /* center horizontally */
+  padding: 10px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.app h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #222;
+}
+
+/* Chat box takes all free space */
+.chat-box {
+  flex: 1;
+  width: 100%;
+  background: #fafafa;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Messages */
+.user {
+  color: blue;
+  margin: 5px 0;
+}
+
+.bot {
+  color: green;
+  margin: 5px 0;
+}
+
+/* Sticky button area */
+.buttons {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+}
+
+/* Button */
+.start-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #0056b3;
+}
