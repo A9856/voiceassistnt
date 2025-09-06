@@ -71,7 +71,7 @@ function App() {
       addMessage("bot", reply);
       speak(reply, lang, () => {
         if (isFirstQuestion) {
-          // 🟢 Auto second question trigger
+          // Auto second question trigger
           const secondQ = lang === "hi" ? "React का use क्या है?" : "What are the uses of React?";
           addMessage("user", secondQ);
           getBotResponse(secondQ, lang, false); // second question answer
@@ -79,7 +79,7 @@ function App() {
       });
     } catch (error) {
       console.error("Gemini API error:", error);
-      addMessage("bot", "⚠️ Network error.");
+      addMessage("bot", "Network error.");
     }
   };
 
@@ -111,7 +111,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>🎤 Gemini Voice Assistant</h1>
+      <h1>Voice Assistant</h1>
 
       <div className="chat-box">
         {messages.map((msg, index) => (
@@ -127,7 +127,7 @@ function App() {
           disabled={listening}
           className="start-btn"
         >
-          {listening ? "Listening..." : "Start Listening 🎙️"}
+          {listening ? "Listening..." : "Start Listening"}
         </button>
       </div>
     </div>
@@ -146,7 +146,7 @@ export default App;
 //   const [messages, setMessages] = useState([]);
 //   const recognitionRef = useRef(null);
 
-//   // 🔎 Language detection (English / Hindi Roman / Hindi Devanagari)
+//   // Language detection (English / Hindi Roman / Hindi Devanagari)
 //   const detectLanguage = (text) => {
 //     // अगर देवनागरी script है → Hindi
 //     if (/[\u0900-\u097F]/.test(text)) {
@@ -176,7 +176,7 @@ export default App;
 //     return "en";
 //   };
 
-//   // 🎤 Start Listening
+//   // Start Listening
 //   const startListening = () => {
 //     const SpeechRecognition =
 //       window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -203,7 +203,7 @@ export default App;
 //     recognitionRef.current.start();
 //   };
 
-//   // 🛑 Stop Listening
+//   //  Stop Listening
 //   const stopListening = () => {
 //     if (recognitionRef.current) {
 //       recognitionRef.current.stop();
@@ -211,7 +211,7 @@ export default App;
 //     }
 //   };
 
-//   // 💬 Add message
+//   //  Add message
 //   const addMessage = (sender, text) => {
 //     setMessages((prev) => [...prev, { sender, text }]);
 
@@ -222,7 +222,7 @@ export default App;
 //     }, 100);
 //   };
 
-//   // 🤖 Gemini API call
+//   //  Gemini API call
 //   const getBotResponse = async (text, lang) => {
 //     try {
 //       const res = await fetch(
@@ -242,7 +242,7 @@ export default App;
 //       console.log("Gemini response:", data);
 
 //       if (data.error) {
-//         addMessage("bot", `❌ ${data.error.message}`);
+//         addMessage("bot", ` ${data.error.message}`);
 //         speak(`Error: ${data.error.message}`, lang);
 //         return;
 //       }
@@ -252,14 +252,14 @@ export default App;
 //         "Sorry, I didn’t understand.";
 
 //       addMessage("bot", reply);
-//       speak(reply, lang); // 🗣 same language reply
+//       speak(reply, lang); //  same language reply
 //     } catch (error) {
 //       console.error("Gemini API error:", error);
-//       addMessage("bot", "⚠️ Network error.");
+//       addMessage("bot", " Network error.");
 //     }
 //   };
 
-//   // 🔊 Speak text in correct language
+//   //  Speak text in correct language
 //   const speak = (text, lang) => {
 //     const utterance = new SpeechSynthesisUtterance(text);
 //     utterance.lang = lang === "hi" ? "hi-IN" : "en-US";
@@ -276,14 +276,14 @@ export default App;
 //     window.speechSynthesis.speak(utterance);
 //   };
 
-//   // 🟢 Ensure voices are loaded
+//   //  Ensure voices are loaded
 //   useEffect(() => {
 //     window.speechSynthesis.onvoiceschanged = () => {};
 //   }, []);
 
 //   return (
 //     <div className="app">
-//       <h1>🎤 Gemini Voice Assistant</h1>
+//       <h1>Voice Assistant</h1>
 
 //       <div className="chat-box">
 //         {messages.map((msg, index) => (
@@ -299,11 +299,11 @@ export default App;
 //           disabled={listening}
 //           className="start-btn"
 //         >
-//           {listening ? "Listening..." : "Start Listening 🎙️"}
+//           {listening ? "Listening..." : "Start Listening"}
 //         </button>
 
 //         <button onClick={stopListening} disabled={!listening} className="stop-btn">
-//           Stop ❌
+//           Stop 
 //         </button>
 //       </div>
 //     </div>
@@ -322,7 +322,7 @@ export default App;
 //   const [messages, setMessages] = useState([]);
 //   const recognitionRef = useRef(null);
 
-//   // 🎤 Start Listening (Speech Recognition)
+//   // Start Listening (Speech Recognition)
 //   const startListening = () => {
 //     const SpeechRecognition =
 //       window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -348,12 +348,12 @@ export default App;
 //     recognitionRef.current.start();
 //   };
 
-//   // 💬 Add new message
+//   //Add new message
 //   const addMessage = (sender, text) => {
 //     setMessages((prev) => [...prev, { sender, text }]);
 //   };
 
-//   // 🤖 Call Gemini API
+//   //  Call Gemini API
 //   const getBotResponse = async (text) => {
 //     try {
 //       const res = await fetch(
@@ -372,18 +372,18 @@ export default App;
 //       const data = await res.json();
 //       console.log("Gemini API response:", data);
 
-//       // 🛑 If API returns error
+//       // If API returns error
 //       if (data.error) {
 //         let errorMsg = "Error connecting to Gemini API.";
 
 //         if (data.error.code === 429) {
-//           errorMsg = "⚠️ Quota exceeded. Please upgrade your plan or try later.";
+//           errorMsg = "Quota exceeded. Please upgrade your plan or try later.";
 //         } else if (data.error.code === 403) {
-//           errorMsg = "🚫 Invalid API Key or Access Denied.";
+//           errorMsg = "Invalid API Key or Access Denied.";
 //         } else if (data.error.code === 404) {
-//           errorMsg = "❌ Model not found. Check model name.";
+//           errorMsg = "Model not found. Check model name.";
 //         } else {
-//           errorMsg = `❌ ${data.error.message}`;
+//           errorMsg = `${data.error.message}`;
 //         }
 
 //         addMessage("bot", errorMsg);
@@ -391,7 +391,7 @@ export default App;
 //         return;
 //       }
 
-//       // ✅ Success reply
+//       // Success reply
 //       const reply =
 //         data.candidates?.[0]?.content?.parts?.[0]?.text ||
 //         "Sorry, I didn’t understand.";
@@ -400,11 +400,11 @@ export default App;
 //       speak(reply);
 //     } catch (error) {
 //       console.error("Gemini API error:", error);
-//       addMessage("bot", "⚠️ Network error. Please check your connection.");
+//       addMessage("bot", "Network error. Please check your connection.");
 //     }
 //   };
 
-//   // 🔊 Text to Speech
+//   // Text to Speech
 //   const speak = (text) => {
 //     const utterance = new SpeechSynthesisUtterance(text);
 //     utterance.lang = "en-US";
@@ -413,7 +413,7 @@ export default App;
 
 //   return (
 //     <div className="app">
-//       <h1>🎤 Gemini Voice Assistant</h1>
+//       <h1>Voice Assistant</h1>
 
 //       <div className="chat-box">
 //         {messages.map((msg, index) => (
@@ -424,7 +424,7 @@ export default App;
 //       </div>
 
 //       <button onClick={startListening} className="start-btn">
-//         {listening ? "Listening..." : "Start Talking 🎙️"}
+//         {listening ? "Listening..." : "Start Talking "}
 //       </button>
 //     </div>
 //   );
